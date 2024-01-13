@@ -1,5 +1,18 @@
 package org.example;
 
+class ExecLinkedList {
+    public static void main(String[] args) {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(10);
+        linkedList.add(2);
+        linkedList.add(4);
+        linkedList.add(3);
+        linkedList.clean();
+        System.out.println(linkedList.getSize());
+        System.out.println(linkedList);
+    }
+}
+
 class No<T> {
      T value;
      No<T> nextValue;
@@ -88,15 +101,3 @@ public class LinkedList<T> {
     }
 }
 
-class exec {
-    public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(10);
-        linkedList.add(2);
-        linkedList.add(4);
-        linkedList.add(3);
-        linkedList.clean();
-        System.out.println(linkedList.getSize());
-        System.out.println(linkedList);
-    }
-}

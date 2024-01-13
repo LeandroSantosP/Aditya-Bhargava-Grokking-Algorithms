@@ -1,15 +1,18 @@
 package org.example;
 
-public class Recursion {
 
+class ExecRecursion {
     public static void main(String[] args) {
         Recursion recursion = new Recursion();
         // recursion.exec01(10);
         System.out.println(recursion.factorial(3));
         // System.out.println(recursion.factorialWitLoop(3));
     }
+}
 
-    private int factorial(int num) {
+public class Recursion {
+
+    public int factorial(int num) {
         if (num == 1) {
             return 1;
         }
