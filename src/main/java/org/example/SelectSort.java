@@ -1,17 +1,19 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class SelectSort<T extends Comparable<T>> {
     public static void main(String[] args) {
-        SelectSort<Integer> selectSort = new SelectSort();
+        SelectSort<Integer> selectSort = new SelectSort<>();
         ArrayList<Integer> list = new ArrayList<>();
         List<Integer> values = Arrays.asList(231, 3, 23, 23, 52, 1);
         list.addAll(values);
         System.out.println(selectSort.exec(list));
         System.out.println(list);
     }
+
     public SelectSort() {
     }
 
