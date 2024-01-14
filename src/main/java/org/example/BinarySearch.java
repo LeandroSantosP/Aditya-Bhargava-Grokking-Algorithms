@@ -6,7 +6,7 @@ import java.util.List;
 public class BinarySearch<T extends Comparable<T>> {
 
     public static void main(String[] args) {
-        BinarySearch<Integer> binarySearch = new BinarySearch();
+        BinarySearch<Integer> binarySearch = new BinarySearch<>();
         ArrayList<Integer> s = new ArrayList<>();
         s.addAll(List.of(5, 10, 20, 21));
         System.out.println(binarySearch.exec(s, 21));
@@ -27,6 +27,4 @@ public class BinarySearch<T extends Comparable<T>> {
         } while (start <= end);
         return -1;
     }
-
-
 }
