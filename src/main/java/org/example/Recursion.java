@@ -11,10 +11,10 @@ class ExecRecursion {
         ArrayList<Integer> s = new ArrayList<>();
         s.addAll(List.of(5, 10, 20, 21));
         System.out.println(recursion.binarySearchRec(s, 10, 0, s.size() - 1));
-//        System.out.println(recursion.<Integer>maxNum(s, 0, s.get(0)));
-//        System.out.println(recursion.count(s));
-//        System.out.println(recursion.sumR(s));
-//        System.out.println(recursion.DeC(s, 0, s.size() - 1));
+        // System.out.println(recursion.<Integer>maxNum(s, 0, s.get(0)));
+        // System.out.println(recursion.count(s));
+        // System.out.println(recursion.sumR(s));
+        // System.out.println(recursion.DeC(s, 0, s.size() - 1));
         // System.out.println(recursion.factorialWitLoop(3));
     }
 }
@@ -90,7 +90,6 @@ public class Recursion {
         // unstack the calls returning the stack item from top to bottom Ex: 1,2,3...
         return num * res;
     }
-
 
     public int factorialWitLoop(int num) {
         int total = 1;

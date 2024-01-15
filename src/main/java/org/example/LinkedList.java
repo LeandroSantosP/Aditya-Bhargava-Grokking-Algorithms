@@ -14,8 +14,8 @@ class ExecLinkedList {
 }
 
 class No<T> {
-     T value;
-     No<T> nextValue;
+    T value;
+    No<T> nextValue;
 
     public No(T value) {
         this.value = value;
@@ -100,4 +100,3 @@ public class LinkedList<T> {
         return builder.toString();
     }
 }
-

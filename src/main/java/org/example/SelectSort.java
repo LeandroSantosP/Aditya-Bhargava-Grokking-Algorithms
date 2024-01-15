@@ -14,9 +14,6 @@ public class SelectSort<T extends Comparable<T>> {
         System.out.println(list);
     }
 
-    public SelectSort() {
-    }
-
     public ArrayList<T> exec(ArrayList<T> arr) {
         ArrayList<T> sorted = new ArrayList<>(arr.size());
         while (!arr.isEmpty()) {
