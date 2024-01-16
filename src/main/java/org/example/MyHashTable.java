@@ -1,17 +1,30 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
 
 class HashTableExec {
     public static void main(String[] args) {
-        HashTable<String, String> hashTable = new HashTable<>(5);
-        hashTable.add("Alex Manning", "7175501675");
-        hashTable.add("Ulises Bauer", "2487620356");
-        hashTable.add("Uriel Moralesg", "2522583799");
-        hashTable.add("Beckett Nash", "2341096666");
-        hashTable.add("Silas Molina", "2126583916");
-        System.out.println(hashTable.get("Beckett Nash"));
+        /* Java Implemataion */
+        Hashtable<String, String> hashtable = new Hashtable<>();
+        hashtable.put("Alex", "7175501675");
+        hashtable.put("Ulises Bauer", "2487620356");
+        System.out.println(hashtable.get("Alex"));
+        Enumeration<String> keys = hashtable.keys();
+        while (keys.hasMoreElements()) {
+            String key = keys.nextElement();
+            System.out.println("Key: " + key + ", Value: " + hashtable.get(key));
+        }
+        /* My Simple Implemataion */
+        MyHashTable<String, String> myhashTable = new MyHashTable<>(5);
+        myhashTable.add("Alex Manning", "7175501675");
+        myhashTable.add("Ulises Bauer", "2487620356");
+        myhashTable.add("Uriel Moralesg", "2522583799");
+        myhashTable.add("Beckett Nash", "2341096666");
+        myhashTable.add("Silas Molina", "2126583916");
+        System.out.println(myhashTable.get("Beckett Nash") == "2341096666");
     }
 }
 
@@ -30,10 +43,10 @@ class Item<K, V> {
     }
 }
 
-public class HashTable<K, V> {
+public class MyHashTable<K, V> {
     private List<Item<K, V>>[] table;
 
-    public HashTable(int capacity) {
+    public MyHashTable(int capacity) {
         this.table = new ArrayList[capacity];
         for (int index = 0; index < capacity; index++) {
             this.table[index] = new ArrayList<>();
@@ -49,12 +62,12 @@ public class HashTable<K, V> {
         this.table[this.hash(name)].add(new Item<K, V>(name, phoneNum));
     }
 
-    public Item get(K name) {
+    public V get(K name) {
         int position = this.hash(name);
         List<Item<K, V>> itemList = this.table[position];
         for (Item<K, V> item : itemList) {
             if (item.key.equals(name)) {
-                return item;
+                return item.value;
             }
         }
         return null;
