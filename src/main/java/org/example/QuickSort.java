@@ -17,10 +17,14 @@ public class QuickSort {
     if (list.size() < 2) {
       return list;
     }
-    int pivot = list.get(0);
+    int middle = list.size() / 2;
+    int pivot = list.get(middle);
     ArrayList<Integer> less = new ArrayList<>();
     ArrayList<Integer> greater = new ArrayList<>();
-    for (int index = 1; index < list.size(); index++) {
+    for (int index = 0; index < list.size(); index++) {
+      if (index == middle) {
+        continue;
+      }
       if (list.get(index) <= pivot) {
         less.add(list.get(index));
       } else {
