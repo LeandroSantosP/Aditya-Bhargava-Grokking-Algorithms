@@ -29,6 +29,7 @@ class HashTableExec {
 }
 
 class Item<K, V> {
+
     public final K key;
     public final V value;
 
@@ -43,7 +44,7 @@ class Item<K, V> {
     }
 }
 
-public class MyHashTable<K, V> {
+public class MyHashTable<K extends String, V> {
     private List<Item<K, V>>[] table;
 
     public MyHashTable(int capacity) {
@@ -58,12 +59,21 @@ public class MyHashTable<K, V> {
         return (baseHash) % this.table.length;
     }
 
+    private int hash2(K value) {
+        int hash = 5381;
+        for (int i = 0; i < value.length(); i++) {
+            hash = (hash << 5) + hash + value.charAt(i);
+        }
+        hash = Math.abs(hash);
+        return hash % this.table.length;
+    }
+
     public void add(K name, V phoneNum) {
-        this.table[this.hash(name)].add(new Item<K, V>(name, phoneNum));
+        this.table[this.hash2(name)].add(new Item<K, V>(name, phoneNum));
     }
 
     public V get(K name) {
-        int position = this.hash(name);
+        int position = this.hash2(name);
         List<Item<K, V>> itemList = this.table[position];
         for (Item<K, V> item : itemList) {
             if (item.key.equals(name)) {
@@ -75,12 +85,12 @@ public class MyHashTable<K, V> {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("HashTable [");
+        StringBuilder result = new StringBuilder("HashTable {");
         for (int i = 0; i < table.length; i++) {
             result.append("pos ").append(i).append(": ").append(table[i]).append(", ");
         }
         result.delete(result.length() - 2, result.length());
-        result.append("]");
+        result.append("}");
         return result.toString();
     }
 }
